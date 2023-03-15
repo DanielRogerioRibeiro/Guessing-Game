@@ -1,38 +1,41 @@
 # Este é um jogo de Adivinhação.
 # O usuário deverá acertar qual é a informação secreta.
-# O objetivo do jogo é encontrar a informação secreta no menor numero de tentativas
+# O objetivo do jogo é encontrar a informação secreta no menor número de tentativas
 
-informacao_secreta = "51"
+# Resposta da Informação Secreta
+informacao_secreta = 51
+
+# Variáveis Globais
+total_de_tentativas 	= 2
+rodada              	= 1
 
 
+# Apresentação
 print ("***** Olá seja bem vindo ao Jogo de Adivinhação*****")
 print ("***** Você tem duas tentativas para acertar a informação secreta*****")
 
-tentativa = input ("A pista da informação secreta é: *Este número é uma boa ideia* : ")
-resultado = str(tentativa)
-
-if resultado == informacao_secreta:
-        print ("Parabéns você acertou")
-
-else:
-        print (" Você errou tente outra vez")
-
-
-sair = input ("Pressione (1) Sair (2) Jogar Novamente: ")
-sair_game = int(sair)
-
-if sair_game == 1:
-        exit()
-
-elif sair_game == 2:
+# Realizando Loop
+while (rodada <= total_de_tentativas):
+    print ("Tentativa {} de {}".format(rodada, total_de_tentativas))
     tentativa = input ("A pista da informação secreta é: *Este número é uma boa ideia* : ")
-resultado = str(tentativa)
+    resultado = int(tentativa)
 
-if resultado == informacao_secreta:
+# Variáveis
+    acertou                = resultado == informacao_secreta
+    chute_for_maior  = resultado > informacao_secreta
+    chute_for_menor = resultado < informacao_secreta
+
+    if (acertou):
         print ("Parabéns você acertou")
 
-else:
-        print (" Você errou tente outra vez")
+    else:
+        if (chute_for_maior):
+            print ("Você Errou. Seu palpite foi maior")
+        elif (chute_for_menor):
+            print ("Você Errou. Seu palpite foi menor")
+
+    rodada = rodada + 1
+
 
 print ("A informação secreta era: ", informacao_secreta)    
         
