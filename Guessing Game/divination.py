@@ -7,15 +7,13 @@ informacao_secreta = 51
 
 # Variáveis Globais
 total_de_tentativas 	= 2
-rodada              	= 1
-
 
 # Apresentação
 print ("***** Olá seja bem vindo ao Jogo de Adivinhação*****")
 print ("***** Você tem duas tentativas para acertar a informação secreta*****")
 
 # Realizando Loop
-while (rodada <= total_de_tentativas):
+for rodada in range (1, total_de_tentativas + 1):
     print ("Tentativa {} de {}".format(rodada, total_de_tentativas))
     tentativa = input ("A pista da informação secreta é: *Este número é uma boa ideia* : ")
     resultado = int(tentativa)
@@ -34,10 +32,11 @@ while (rodada <= total_de_tentativas):
         elif (chute_for_menor):
             print ("Você Errou. Seu palpite foi menor")
 
-    rodada = rodada + 1
+    
 
 
 print ("A informação secreta era: ", informacao_secreta)    
         
 print ("Obrigado por ter participado do Jogo")
 print ("*****FIM DE JOGO*****")
+
