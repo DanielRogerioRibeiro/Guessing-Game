@@ -3,10 +3,12 @@
 # O objetivo do jogo é encontrar a informação secreta no menor número de tentativas
 
 # Resposta da Informação Secreta
-informacao_secreta = 51
+informacao_secreta      = 51
 
 # Variáveis Globais
 total_de_tentativas 	= 2
+
+
 
 # Apresentação
 print ("***** Olá seja bem vindo ao Jogo de Adivinhação*****")
@@ -18,6 +20,10 @@ for rodada in range (1, total_de_tentativas + 1):
     tentativa = input ("A pista da informação secreta é: *Este número é uma boa ideia* : ")
     resultado = int(tentativa)
 
+    if (resultado < 1 or resultado > 100):
+        print("Você deve digitar um valor entre 1 e 100!")
+        continue
+
 # Variáveis
     acertou                = resultado == informacao_secreta
     chute_for_maior  = resultado > informacao_secreta
@@ -25,6 +31,7 @@ for rodada in range (1, total_de_tentativas + 1):
 
     if (acertou):
         print ("Parabéns você acertou")
+        break
 
     else:
         if (chute_for_maior):
@@ -39,4 +46,3 @@ print ("A informação secreta era: ", informacao_secreta)
         
 print ("Obrigado por ter participado do Jogo")
 print ("*****FIM DE JOGO*****")
-
