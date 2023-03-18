@@ -2,8 +2,11 @@
 # O usuário deverá acertar qual é a informação secreta.
 # O objetivo do jogo é encontrar a informação secreta no menor número de tentativas
 
+import random
+
+
 # Resposta da Informação Secreta
-informacao_secreta      = 51
+informacao_secreta = random.randrange(1,101)
 
 # Variáveis Globais
 total_de_tentativas 	= 2
@@ -21,28 +24,27 @@ for rodada in range (1, total_de_tentativas + 1):
     resultado = int(tentativa)
 
     if (resultado < 1 or resultado > 100):
-        print("Você deve digitar um valor entre 1 e 100!")
+        print("Você deve digitar um valor entre 1 e 100")
         continue
 
 # Variáveis
     acertou                = resultado == informacao_secreta
     chute_for_maior  = resultado > informacao_secreta
     chute_for_menor = resultado < informacao_secreta
+    falhou          = informacao_secreta
+
 
     if (acertou):
         print ("Parabéns você acertou")
         break
 
     else:
-        if (chute_for_maior):
+       if (chute_for_maior):
             print ("Você Errou. Seu palpite foi maior")
-        elif (chute_for_menor):
+       elif (chute_for_menor):
             print ("Você Errou. Seu palpite foi menor")
-
-    
-
-
+       
 print ("A informação secreta era: ", informacao_secreta)    
-        
 print ("Obrigado por ter participado do Jogo")
 print ("*****FIM DE JOGO*****")
+
